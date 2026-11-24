@@ -1,0 +1,15 @@
+[Unit]
+Description=Router Reboot - reboot the home router when the OpenCode free limit is reached
+Documentation=file://{{SKILL_DIR}}/SKILL.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory={{SKILL_DIR}}
+ExecStart={{NODE}} {{SKILL_DIR}}/scripts/watch-limit.mjs
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

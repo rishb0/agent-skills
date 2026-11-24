@@ -1,0 +1,8 @@
+node_modules/
+router.config.json
+*.log
+.watch-state.json
+.last-home
+artifacts/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,25 @@
+{
+  "name": "router-reboot-skill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reboot the home router when the OpenCode free-tier limit is reached, then resume the interrupted sessions.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "discover": "node scripts/discover.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "check": "node scripts/reboot-router.mjs --check",
+    "dry": "node scripts/reboot-router.mjs --dry-run",
+    "reboot": "node scripts/reboot-router.mjs",
+    "watch": "node scripts/watch-limit.mjs",
+    "watch:dry": "node scripts/watch-limit.mjs --dry-run",
+    "continue": "node scripts/continue-sessions.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "playwright-core": "1.64.1"
+  }
+}

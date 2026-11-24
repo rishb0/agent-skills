@@ -1,0 +1,56 @@
+{
+  "configVersion": 1,
+  "router": {
+    "baseUrl": "https://192.168.1.1",
+    "username": "admin",
+    "password": "",
+    "passwordEnv": "ROUTER_PASSWORD",
+    "ignoreHttpsErrors": true,
+    "chromePath": ""
+  },
+  "safety": {
+    "wifiSsid": "",
+    "guards": [],
+    "cooldownMinutes": 15
+  },
+  "reboot": {
+    "mode": "ui",
+    "acceptDialogs": true,
+    "login": {
+      "path": "/",
+      "username": "input[name=username]",
+      "password": "input[name=password]",
+      "submit": "input[type=submit]",
+      "successUrl": "pages.html"
+    },
+    "http": {
+      "method": "PUT",
+      "path": "/api/devicectrl",
+      "contentType": "application/json",
+      "body": {
+        "command": "reboot"
+      }
+    },
+    "steps": [
+      { "click": "text=Maintenance" },
+      { "hover": "text=Maintenance" },
+      { "click": "text=Reboot Device" },
+      { "click": "input[name=reboot]" },
+      { "waitForText": "device is restarting", "timeoutMs": 10000 }
+    ]
+  },
+  "watch": {
+    "opencodeDb": "",
+    "logPath": "",
+    "pollSeconds": 3,
+    "batchSeconds": 15,
+    "maxSessions": 5,
+    "settleSeconds": 90
+  },
+  "resume": {
+    "enabled": false,
+    "gapSeconds": 20,
+    "attempts": 3,
+    "retrySeconds": 30
+  }
+}
